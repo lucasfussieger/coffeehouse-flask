@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'partials/header.html'%}
+   
+    <main>
+        <form action="/register_product" method="POST" enctype="multipart/form-data">
+            <h1>REGISTRO DE PRODUTO</h1>
+            <LAbel for = 'name'>nome do produto:</LAbel><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="price">preço unitário:</label><br>
+            <input type="text" id="price" name="price"><br>
+            <label for="description">descrição do produto:</label><br>
+            <input type="text" id="description" name="description"><br>
+            <select name="product_type" id="product_type">
+                <option value="coffe">café</option>
+                <option value="coffemachine">cafeteira</option>
+                <option value="acessory">acessório</option>
+                <option value="coffedrink">bebidas</option>
+            </select>
+            <label for="image">Escolher imagem:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+            <button type="submit">Enviar</button><br>        
+        </form>
+    </main>
+</body>
+</html>

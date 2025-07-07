@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+body {
+  overflow-x: hidden;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  gap: 50px;
+}
+
+main {
+  font-family: Montserrat, 'Alfa Slab One';
+  color: #1b4f72;
+  font-size: 15px;  
+  display: flex;     
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* espaço entre os elementos */
+  background: #fff9e6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.store {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+  margin: 20px;
+}
+.product img{
+  width: 22vw;
+}
+.product {
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding:50px 50px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin: 20px;
+  width: 35vw;
+  height: 35vw;
+}
+
+.iten img {
+  width: 5vw;
+}
+
+.iten {
+  
+  width: 100vw;
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  gap: 10px;
+  border: 2px solid #1b4f72;
+  margin: 20px;
+  padding-left: 20px;
+}
+button{
+  width: 100%;
+  font-size: 20px;
+  color: #1b4f72;
+  background-color: white;
+  border-radius: 8px;
+ }
+/*
+.top-bar {
+  font-size: 50px;             /* texto branco 
+  padding: 5px 20px;          espaço interno pequeno: 5px em cima/baixo, 10px laterais */
+  text-align: center;         /*
+  margin: 20px auto;          
+  border-radius: 5px;         
+}
+.content {
+  align-items: center;
+  font-size: 30px;
+  justify-items: center;
+  text-align: center;
+  width: 170px;
+  margin: 0 auto;
+  height: 300px;
+ }
+
+
+
+.subtitle {
+  white-space: nowrap;
+}
+
+.menu {
+  width: 100vw; /* largura da tela inteira *
+  display: flex;
+  
+  gap: 20px;        /* espaço entre os blocos 
+  justify-content: center;  centraliza os blocos 
+  padding: 20px;
+}
+
+.menu a,
+.menu button {
+  border: 1px solid #630000;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  text-align: left;
+  background-color: white;
+  border: 1px solid #630000;
+  padding: 16px;
+  width: 250px;     /* define a largura de cada bloco 
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}*/
+ 
+.flashes{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  color: #630000;
+}
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <form  action="/cadastrar" method="POST">
+            <h1>CADASTRO</h1>
+            <LAbel for = 'nome'>nome de usuario:</LAbel><br>
+            <input type="text" id="nome" name="nome"><br>
+            <label for="email">endereço de email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="senha">digite sua senha:</label><br>
+            <input type="text" id="senha" name="senha"><br>
+            <label for="senha_confirmacao">confirme sua senha</label><br>
+            <input type="text" id="senha_confirmacao" name="senha_confirmacao"><br>
+            <select name="user_type" id="user_type">
+                <option value="cliente">cliente</option>
+                <option value="vendedor">vendedor</option>
+            </select>
+            <button type="submit">criar conta</button>
+        </form>
+    </main>
+    <div class="flashes">
+        {% for message in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ message[1] }}" role="alert">
+                {{ message[1] }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

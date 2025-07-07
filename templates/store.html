@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produtos</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'partials/header.html' %}
+   
+    <main>
+         <div class="flashes">
+            {% for message in get_flashed_messages(with_categories=True) %}
+                <div class="alert alert-{{ message[1] }}" role="alert">
+                    {{ message[1] }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="store">
+            {% for p in produtos %}
+                <a href="{{url_for('product_details',product_id=p.id)}}" class="product">
+                    <img src="{{ url_for('static', filename='uploads/' ~ p.image) }}" alt="Imagem do produto"><br>
+                    {{ p.nome }} - R$ {{  p.preco }}
+                </a>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

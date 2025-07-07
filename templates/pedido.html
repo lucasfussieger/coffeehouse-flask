@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'partials/header.html'%}
+    
+   <main>
+    <h2>Pedido #{{ pedido.id }}</h2>
+    <p>Status: {{ pedido.status }}</p>
+
+    {% for item in pedido.items %}
+        <p>{{ item.product.name }} - {{ item.quantity }}</p>
+    {% endfor %}
+
+    {% if pedido.status != 'aprovado' %}
+        <form method="POST" action="{{ url_for('aprovar_pedido', pedido_id=pedido.id) }}">
+            <button type="submit">Aprovar Pedido</button>
+        </form>
+    {% endif %}
+   </main>
+
+</body>
+</html>

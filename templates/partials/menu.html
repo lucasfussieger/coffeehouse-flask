@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="menu">
+        {% if usuario.user_type == 'cliente'%}
+        
+            <a href="{{url_for('store_filter',product_type='coffe')}}">CAFÉS</a>
+            |
+            <a href="{{url_for('store_filter',product_type='coffemachine')}}">CAFETEIRAS</a>
+            |
+            <a href="{{url_for('store_filter',product_type='acessory')}}">ACESSÓRIOS</a>
+            |
+             <a href="{{url_for('store_filter',product_type='coffedrink')}}">BEBIDAS</a>
+            |
+             <a href="/store">SOBRE NÓS</a>
+        {% elif usuario.user_type == 'vendedor'%}
+            <a href="{{ url_for('register_product') }}"><i class="fa fa-plus"></i> REGISTRAR PRODUTO</a>
+            |
+            <a href="{{url_for('lista_clientes')}}">LISTA DE CLIENTES</a>
+            |
+            <a href="{{url_for('lista_pedidos')}}">LISTA DE PEDIDOS</a>
+        {% endif %}
+    </div>
+</body>
+</html>

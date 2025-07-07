@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <main>
+      <form action="/entrar" method="POST">
+        <h2>ACESSE NOSSO SITE E DESFRUTE DE NOSSOS PRODUTOS</h2>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <button type="submit" >Entrar</button>
+      </form>
+    </main>
+    <div class="flashes">
+      {% for message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ message[1] }}" role="alert">
+          {{ message[1] }}
+        </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+{% include 'partials/header.html'%}
+    <main>
+        <form action="{{ url_for('edit_product', product_id=produto.id) }}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="nome" value="{{ produto.nome }}">
+            <input type="text" name="preco" value="{{ produto.preco }}">
+            <input type="text" name="descricao" value="{{ produto.descricao }}">
+            <select name="product_type" id="product_type">
+                <option value="coffe">café</option>
+                <option value="coffemachine">cafeteira</option>
+                <option value="acessory">acessório</option>
+                <option value="coffedrink">bebidas</option>
+            </select>
+            <label for="image">Escolher imagem:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </main>
+</body>
+</html>

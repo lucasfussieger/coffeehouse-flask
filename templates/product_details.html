@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  {% include 'partials/header.html'%}
+  <main>
+    <h1> <img src="{{ url_for('static', filename='uploads/' ~ produto.image) }}" alt="Imagem do produto"></h1>
+    <h2>{{ produto.nome }}</h2>
+    <p>{{ produto.descricao }}</p>
+    <p>Preço: R$ {{ produto.preco }}</p>
+
+    <!-- Botões diferentes para cliente e vendedor -->
+    {% if usuario.user_type == 'cliente' %}
+      <form action="/product_details/{{produto.id}}" method="post">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" required>
+        <button type="submit">Adicionar ao carrinho</button>
+      </form>
+    {% elif usuario.user_type == 'vendedor' %}
+      <a href="/edit_product/{{ produto.id }}">
+        <button>Editar produto</button>
+      </a>
+      <form action="{{ url_for('delete_product', product_id=produto.id ) }}" method="POST">
+        <button type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar produto</button>
+      </form>
+    {% endif %}
+  </main>
+</body>
+</html>
